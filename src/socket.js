@@ -12,7 +12,7 @@ var configureSockets = function(socketio) {
     socket.on('kick_happened', function(data){
       console.log(data);
       //socket.emit('kick', {time: 10});
-      io.sockets.in('livefeed').emit('kick', { time: 10 });
+      io.sockets.in('livefeed').emit('kick', { time: 100 });
     });
 
     socket.on('disconnect', function(data){
