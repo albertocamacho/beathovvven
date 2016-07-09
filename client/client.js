@@ -15,6 +15,7 @@ $( document ).ready(function() {
 		onKick:function(mag){
 			socket.emit('kick_happened', 'kick')
 			setComment(index);
+			setRandomBackground();
 			index += 1;
 		}
 	});

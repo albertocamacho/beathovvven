@@ -6,7 +6,7 @@ var configureSockets = function(socketio) {
   io.sockets.on('connection', function(socket) {
 
     socket.join('livefeed');
-    socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'https://soundcloud.com/jagjaguwar/unknown-mortal-orchestra-first-world-problem'});
+    socket.emit('Update_toClient', {'gif' : 'Trippy' , 'sc' : 'https://soundcloud.com/jagjaguwar/unknown-mortal-orchestra-first-world-problem'});
 
 
     socket.on('kick_happened', function(data){
