@@ -6,9 +6,6 @@ $( document ).ready(function() {
 	var dancer = new Dancer();
 	var initialized = false;
 
-
-
-
 	var kick = dancer.createKick({
 		onKick:function(mag){
 			//some function on kick
@@ -34,7 +31,7 @@ $( document ).ready(function() {
 	});	
 
 	socket.on('Update_toClient', function(data){
-		//loadMedia(data.gif, data.sc);
+		loadMedia(data.gif, data.sc);
 	});
 
 
@@ -48,6 +45,8 @@ $( document ).ready(function() {
 			clearInterval(checkLoadedInterval);
 		}
 	}, 1000);   
+
+
 
 
 

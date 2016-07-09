@@ -8,7 +8,7 @@ var configureSockets = function(socketio) {
 
   socket.join('livefeed');
   
-  //socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'Hotline Bling'});
+  socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'http://soundcloud.com/forss/voca-nomen-tuum'});
 
     socket.on('disconnect', function(data){
       socket.leave('livefeed'); 
