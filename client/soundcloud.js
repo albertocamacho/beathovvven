@@ -1,7 +1,6 @@
 var SC_CLIENT_ID = 'c87401e23d531754aada98044bb88d04';
 var audioElement = document.getElementById('player');
 
-
 function SoundCloud(client_id){
 	//initialize soundcloud object
 	SC.initialize({
@@ -25,6 +24,3 @@ var setSong = function(song){
 	audioElement.load();
 	audioElement.play();
 }
-
-
-
