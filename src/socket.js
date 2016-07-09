@@ -7,12 +7,12 @@ var configureSockets = function(socketio) {
 
     socket.join('livefeed');
 
-    socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'https://soundcloud.com/joshsaltzman/nanidato-super-riser'});
-
     socket.on('kick_happened', function(data){
       console.log(data);
       socket.emit('kick', {time: 10});
     });
+  
+  socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'https://soundcloud.com/jagjaguwar/unknown-mortal-orchestra-cant-keep-checking-my-phone'});
 
     socket.on('disconnect', function(data){
       socket.leave('livefeed');
