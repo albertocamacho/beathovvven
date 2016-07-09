@@ -11,9 +11,8 @@ $( document ).ready(function() {
 	var index = 0;
 
 	var kick = dancer.createKick({
-		threshold: 0.45,
+		threshold: 0.3,
 		onKick:function(mag){
-			setRandomBackground();
 			socket.emit('kick_happened', {prompt: 'kick', comment: scComments[index]})
 			if(index < scComments.length){
 				index += 1;
@@ -60,7 +59,8 @@ $( document ).ready(function() {
 
 	socket.on('kick', function(data){
 		console.log("vibrate");
-    setComment(data.comment);
+		setRandomBackground();
+  	    setComment(data.comment);
 		navigator.vibrate(data.time);
 	});
 
