@@ -14,7 +14,7 @@ $( document ).ready(function() {
 		threshold: 0.3,
 		onKick:function(mag){
 			socket.emit('kick_happened', {prompt: 'kick', comment: scComments[index]})
-			if(index < scComments.length){
+			if(index < (scComments.length - 1)){
 				index += 1;
 			}
 			else {
@@ -59,7 +59,7 @@ $( document ).ready(function() {
 
 	socket.on('kick', function(data){
 		console.log("vibrate");
-		//setRandomBackground();
+		setRandomBackground();
   	    setComment(data.comment);
 		navigator.vibrate(data.time);
 	});
