@@ -5,20 +5,24 @@ $( document ).ready(function() {
 	var sc = new SoundCloud();
 	var dancer = new Dancer();
 	var initialized = false;
+	var comments;
+	var index = 0;
 
 	var kick = dancer.createKick({
 		onKick:function(mag){
-			socket.emit('kick_happened', "kick")
+			socket.emit('kick_happened', 'kick')
+			index += 1;
 		}
 	});
 
 	kick.on();
 
-	function loadMedia(gifTopic, scTopic){
-		sc.setSC(scTopic, function(){
+	function loadMedia(gifTopic, scURL){
+		sc.setSC(scURL, function(comments){
 			if(initialized == false){
 				dancer.load(audio);
 			}
+			comments = comments;
 			getGiphy(gifTopic);
 		});
 	}

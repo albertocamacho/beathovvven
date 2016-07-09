@@ -9,17 +9,20 @@ function SoundCloud(client_id){
 }
 
 SoundCloud.prototype.setSC = function(track_url, callback) {
-	SC.resolve(track_url).then(getStream).then(setSong).then(callback);
+	SC.resolve(track_url).then(getStream).then(setSong);
+	SC.resolve(track_url).then(getComments).then(callback);
 };
 
 var getStream = function (track) {
 	return SC.get('/tracks/' + track.id);
 };
 
+var getComments = function (track) {
+	return SC.get('/tracks/' + track.id + '/comments');
+};
+
 var setSong = function(song){
-
 	var stream_url = song.stream_url + '?client_id=' + SC_CLIENT_ID;
-
 	audioElement.setAttribute("src", stream_url);
 	audioElement.load();
 	audioElement.play();
