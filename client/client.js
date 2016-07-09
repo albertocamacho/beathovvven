@@ -1,12 +1,18 @@
 $( document ).ready(function() {
 
 	var audio = document.getElementById('player');
+	var commentElement = document.getElementById('comment');
 	var socket = io.connect();
 	var sc = new SoundCloud();
 	var dancer = new Dancer();
 	var initialized = false;
+<<<<<<< Updated upstream
 	var comments;
 	var index = 0;
+=======
+	var commentIndex = 0;
+	var comments;
+>>>>>>> Stashed changes
 
 	var kick = dancer.createKick({
 		threshold: 0.3,
@@ -18,8 +24,17 @@ $( document ).ready(function() {
 
 	kick.on();
 
+<<<<<<< Updated upstream
 	function loadMedia(gifTopic, scURL){
 		sc.setSC(scURL, function(comments){
+=======
+	function setComment(comment){
+		$(commentElement).html(comment);
+	}
+
+	function loadMedia(gifTopic, scTopic){
+		sc.setSC(scTopic, function(){
+>>>>>>> Stashed changes
 			if(initialized == false){
 				dancer.load(audio);
 			}
@@ -42,6 +57,7 @@ $( document ).ready(function() {
 
 	socket.on('kick', function(data){
 	  console.log("vibrate");
+
 	  navigator.vibrate(data.time);
 	});
 
