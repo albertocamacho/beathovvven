@@ -6,13 +6,13 @@ var configureSockets = function(socketio) {
   io.sockets.on('connection', function(socket) {
 
     socket.join('livefeed');
-    socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'https://soundcloud.com/jagjaguwar/unknown-mortal-orchestra-cant-keep-checking-my-phone'});
+    socket.emit('Update_toClient', {'gif' : 'Hotline Bling' , 'sc' : 'https://soundcloud.com/jagjaguwar/unknown-mortal-orchestra-first-world-problem'});
 
 
     socket.on('kick_happened', function(data){
       console.log(data);
       //socket.emit('kick', {time: 10});
-      io.sockets.in('livefeed').emit('kick', { time: 100 });
+      io.sockets.in('livefeed').emit('kick', { time: 50 });
     });
 
     socket.on('disconnect', function(data){

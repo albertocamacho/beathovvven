@@ -6,43 +6,46 @@ $( document ).ready(function() {
 	var sc = new SoundCloud();
 	var dancer = new Dancer();
 	var initialized = false;
-<<<<<<< Updated upstream
-	var comments;
+
+	var scComments = [''];
 	var index = 0;
-=======
-	var commentIndex = 0;
-	var comments;
->>>>>>> Stashed changes
 
 	var kick = dancer.createKick({
-		threshold: 0.3,
+		threshold: 0.45,
 		onKick:function(mag){
 			socket.emit('kick_happened', 'kick')
+			setComment(index);
 			index += 1;
 		}
 	});
 
 	kick.on();
 
-<<<<<<< Updated upstream
-	function loadMedia(gifTopic, scURL){
-		sc.setSC(scURL, function(comments){
-=======
-	function setComment(comment){
-		$(commentElement).html(comment);
-	}
 
-	function loadMedia(gifTopic, scTopic){
-		sc.setSC(scTopic, function(){
->>>>>>> Stashed changes
+
+	function loadMedia(gifTopic, scURL){
+		var client = this;
+		sc.setSC(scURL, function(comments){
+
 			if(initialized == false){
 				dancer.load(audio);
 			}
-			comments = comments;
+			scComments = comments;
+
 			getGiphy(gifTopic);
 		});
 	}
 
+	function setComment(commentIndex){
+
+		if(commentIndex < scComments.length && commentIndex > 0){
+			$(commentElement).text(scComments[commentIndex].body);
+		}
+		else{
+			index = 0;
+		}
+		
+	}
 
 
 	socket.on('connect', function(){
@@ -56,9 +59,9 @@ $( document ).ready(function() {
 	navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
 	socket.on('kick', function(data){
-	  console.log("vibrate");
+		console.log("vibrate");
 
-	  navigator.vibrate(data.time);
+		navigator.vibrate(data.time);
 	});
 
 	var checkLoadedInterval = setInterval(function(){
