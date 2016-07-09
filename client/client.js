@@ -59,7 +59,7 @@ $( document ).ready(function() {
 
 	socket.on('kick', function(data){
 		console.log("vibrate");
-		setRandomBackground();
+		//setRandomBackground();
   	    setComment(data.comment);
 		navigator.vibrate(data.time);
 	});
