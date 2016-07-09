@@ -7,9 +7,9 @@ $( document ).ready(function() {
 	var initialized = false;
 
 	var kick = dancer.createKick({
-		threshold: 0.6,
+		threshold: 0.3,
 		onKick:function(mag){
-			socket.emit('kick_happened', "kick")
+			socket.emit('kick_happened', "kick");
 		}
 	});
 
