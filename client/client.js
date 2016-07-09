@@ -13,12 +13,7 @@ $( document ).ready(function() {
 	var kick = dancer.createKick({
 		threshold: 0.45,
 		onKick:function(mag){
-<<<<<<< HEAD
-			socket.emit('kick_happened', 'kick')
-			setComment(index);
 			setRandomBackground();
-			index += 1;
-=======
 			socket.emit('kick_happened', {prompt: 'kick', comment: scComments[index]})
 			if(index < scComments.length){
 				index += 1;
@@ -26,7 +21,6 @@ $( document ).ready(function() {
 			else {
 				index = 0;
 			}
->>>>>>> origin/master
 		}
 	});
 
