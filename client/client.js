@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	var index = 0;
 
 	var kick = dancer.createKick({
+		threshold: 0.3,
 		onKick:function(mag){
 			socket.emit('kick_happened', 'kick')
 			index += 1;
