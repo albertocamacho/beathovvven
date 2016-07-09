@@ -7,6 +7,7 @@ $( document ).ready(function() {
 	var initialized = false;
 
 	var kick = dancer.createKick({
+		threshold: 0.6,
 		onKick:function(mag){
 			socket.emit('kick_happened', "kick")
 		}
